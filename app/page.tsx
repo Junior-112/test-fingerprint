@@ -1,13 +1,7 @@
 "use client"
 
-import FingerprintJS from "@fingerprintjs/fingerprintjs"
 import { useEffect, useState } from "react"
-
-export async function getFingerprint() {
-  const fp = await FingerprintJS.load()
-  const result = await fp.get()
-  return result.visitorId // unique browser/device ID
-}
+import { getFingerprint } from "./utils/string.utils"
 
 export default function Home() {
   const [fingerprint, setFingerprint] = useState<string | null>(null)
@@ -16,6 +10,7 @@ export default function Home() {
     const id = await getFingerprint()
     setFingerprint(id)
   }
+
   useEffect(() => {
     fetchFingerprint()
   }, [])
