@@ -5,3 +5,8 @@ export async function getFingerprint(): Promise<string> {
   const result = await fp.get()
   return result.visitorId // unique browser/device ID
 }
+
+
+export function decryptData() {
+    
+}
